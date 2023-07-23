@@ -1,4 +1,4 @@
- import { Router, response } from "express";
+ import { Router } from "express";
 
 const toDoList = [
   {
@@ -21,9 +21,6 @@ const toDoList = [
 export const router = Router()
 
 router.get('/', (req, res) => {
-  res.cookie('visited', true, {
-    maxAge: 10000,
-  })
   console.log(req.cookies);
   const { priority } = req.query
   res.send(!priority ? toDoList : toDoList.filter(item => item.priority === priority))
