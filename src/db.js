@@ -3,7 +3,7 @@ dotenv.config()
 
 import { Sequelize } from "sequelize";
 
-export default new Sequelize (
+const sequalize =  new Sequelize (
     process.env.DB_NAME,
     process.env.DB_USER,
     process.env.DB_PASSWORD,
@@ -13,3 +13,5 @@ export default new Sequelize (
         port: `${process.env.DB_PORT}`,
     }
 )
+
+export default sequalize

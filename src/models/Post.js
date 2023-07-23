@@ -1,22 +1,19 @@
 import sequelize  from "../db.js";
 import { DataTypes } from "sequelize";
-import Post from './Post.js'
 
-export default sequelize.define('User', {
+export default sequelize.define('Post', {
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,
     autoIncrement: true,
     primaryKey: true
   },
-  username: {
+  post: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: false
   },
   createdAt: {
     type: DataTypes.DATE(6),
     allowNull: true
   }
 })
-
-User.hasMany(Post, { as: 'posts' });
