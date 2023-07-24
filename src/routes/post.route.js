@@ -1,12 +1,8 @@
 import { Router } from "express";
-import { getAllPosts, getListById, postResponse } from "../controllers/post.controller";
+import { createPost } from "../controllers/post.controller.js";
  
 export const router = Router()
 
-router.get('/', getAllPosts)
-
-router.get('/:id', getListById)
-
-router.post('/', postResponse)
+router.post('/create', createPost)
 
 export default router

@@ -1,4 +1,5 @@
-import Post from '../models/Post'
+import Post from '../models/Post.js'
+import User from '../models/User.js'
 
 const createPost = (req, res) => {
   try {
@@ -8,8 +9,13 @@ const createPost = (req, res) => {
       post
     })
 
-    res.status(201).send(createdPost)
+    const user = User.findByPk(id)
+
+    user.addPosts(createdPost)
+
+    res.status(201).send(user)
   } catch (error) {
+    console.log(error);
     res.status(404).send(error)    
   }
 }

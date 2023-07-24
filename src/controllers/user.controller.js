@@ -1,6 +1,6 @@
-import User from '../models/User'
+import User from '../models/User.js'
 
-const createUser = async (req, res) => {
+function createUser (req, res) {
   try {
     const { username } = req;
     const user = User.create({
