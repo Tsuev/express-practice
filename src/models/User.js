@@ -2,7 +2,7 @@ import sequelize  from "../db.js";
 import { DataTypes } from "sequelize";
 import Post from './Post.js'
 
-export default sequelize.define('User', {
+const User = sequelize.define('User', {
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -15,8 +15,10 @@ export default sequelize.define('User', {
   },
   createdAt: {
     type: DataTypes.DATE(6),
-    allowNull: true
+    allowNull: true,
   }
 })
 
 User.hasMany(Post, { as: 'posts' });
+
+export default User

@@ -1,7 +1,7 @@
 import sequelize  from "../db.js";
 import { DataTypes } from "sequelize";
 
-export default sequelize.define('Post', {
+const Post = sequelize.define('Post', {
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -17,3 +17,5 @@ export default sequelize.define('Post', {
     allowNull: true
   }
 })
+
+export default Post
